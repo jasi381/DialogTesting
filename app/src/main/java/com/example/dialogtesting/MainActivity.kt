@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.customDialog.setOnClickListener {
+
             val dialog = CarnotDialog(this)
         }
 
