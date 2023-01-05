@@ -8,7 +8,7 @@ import android.widget.RelativeLayout
 
 
 //this class will be inherited by linear layout
-class CarnotDialog(private var context: Activity) {
+class CarnotDialog(private var context: Activity, private val layout: Int) {
 
     init {
         val dialog = Dialog(context)
@@ -16,17 +16,15 @@ class CarnotDialog(private var context: Activity) {
         dialog.setTitle("Title here")
 
         val relativeLayout = dialog.findViewById<RelativeLayout>(R.id.container)
-//        val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//        relativeLayout.addView(R.layout.tmp_layout)
 
         val inflater = LayoutInflater.from(context)
 
 
-        val view = inflater.inflate(R.layout.tmp_layout_2,null)
+        val view = inflater.inflate(layout, null)
 
-        val inflatedLayout = inflater.inflate(R.layout.tmp_layout,view as ViewGroup,false)
+//        val inflatedLayout = inflater.inflate(R.layout.tmp_layout,view as ViewGroup,false)
 
-        relativeLayout.addView(inflatedLayout)
+        relativeLayout.addView(view)
         dialog.show()
 
     }

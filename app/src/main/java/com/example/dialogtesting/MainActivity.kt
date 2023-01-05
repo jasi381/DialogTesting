@@ -2,10 +2,6 @@ package com.example.dialogtesting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import androidx.appcompat.widget.DialogTitle
 import com.example.dialogtesting.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.customDialog.setOnClickListener {
 
-            val dialog = CarnotDialog(this)
+            val dialog = CarnotDialog(this, R.layout.demo_nba)
         }
 
     }
