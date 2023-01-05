@@ -1,9 +1,7 @@
 package com.example.dialogtesting
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import androidx.appcompat.widget.DialogTitle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.dialogtesting.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +19,11 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btn.setOnClickListener {
-            //dialogTest.setTitleAndBody("Title","Hello you are in the dialog inside the app")
-            dialogTest.setContentLayout(com.example.dialogtesting.R.layout.activity_main)
+            dialogTest.setTitleAndBody("Title","Hello you are in the dialog inside the app")
+           // dialogTest.setContentLayout(R.layout.activity_main)
+            dialogTest.setCustomLayout(R.layout.demo_nba)
         }
+
 
 
 
