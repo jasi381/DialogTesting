@@ -1,61 +1,34 @@
 package com.example.dialogtesting
 
+import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import com.google.android.material.button.MaterialButton
+import android.view.ViewGroup
+import android.widget.RelativeLayout
 
 
 //this class will be inherited by linear layout
-class DialogTest(var mContext :Context): ConstraintLayout(mContext) {
+class CarnotDialog(private var context: Activity) {
 
-    //this function will be called to show dialog
-//    fun showDialog() {
-//        val dialog = Dialog(mContext)
-//        dialog.setContentView(R.layout.dialog_items)
-//        dialog.show()
-//    }
+    init {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.carnot_dialog)
+        dialog.setTitle("Title here")
 
-    fun setTitleAndBody(title: String,body: String) {
+        val relativeLayout = dialog.findViewById<RelativeLayout>(R.id.container)
+//        val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+//        relativeLayout.addView(R.layout.tmp_layout)
 
-
-        val dialog = Dialog(mContext)
-        dialog.setContentView(R.layout.dialogs)
-        val titleText = dialog.findViewById<TextView>(R.id.dialogTitle)
-        val bodyText = dialog.findViewById<TextView>(R.id.dialogBody)
-        titleText.text = title
-        bodyText.text = body
-
-        // val positiveBtn = dialog.findViewById<>
-
-        val positiveBtn = dialog.findViewById<MaterialButton>(R.id.dialogButton1)
-        val negative = dialog.findViewById<MaterialButton>(R.id.dialogButton2)
-
-        positiveBtn.text = "OK"
-        negative.text = "Cancel"
-
-        // text color of positive button
-        positiveBtn.setTextColor(ContextCompat.getColor(mContext,R.color.purple_500))
-
-        //background color of positive button
-        positiveBtn.setBackgroundDrawable(ContextCompat.getDrawable(mContext,R.drawable.clicked))
+        val inflater = LayoutInflater.from(context)
 
 
-        //background color of negative button
-        negative.setBackgroundDrawable(ContextCompat.getDrawable(mContext,R.drawable.disabled))
+        val view = inflater.inflate(R.layout.tmp_layout_2,null)
+
+        val inflatedLayout = inflater.inflate(R.layout.tmp_layout,view as ViewGroup,false)
+
+        relativeLayout.addView(inflatedLayout)
         dialog.show()
 
-
-    }
-    //custom layout for dialog
-    fun setContentLayout(layout: Int) {
-        val dialog = Dialog(mContext)
-        dialog.setContentView(layout)
-        dialog.show()
     }
 
 }
